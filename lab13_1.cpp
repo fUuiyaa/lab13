@@ -19,3 +19,36 @@ int main(){
     cout << "Min = " << B[5];
     return 0;
 }
+
+void stat(const double num[],int howmany,double ans[]){
+    double ans2=0;
+    ans[0]=0;
+    ans[2]=0;
+    double sum=1;
+    double sum2=0;
+    for(int i=0;i<howmany;i++){
+        ans[0]+=num[i];
+        ans2 += pow(num[i],2);
+    }
+
+    ans[0]/=howmany;
+    ans[1]= sqrt((ans2/howmany)-pow(ans[0],2));
+
+    for(int j=0;j<howmany;j++){
+        sum*= num[j];
+        
+    }
+    ans[2]= pow(sum,1.0/howmany);
+
+    for(int k=0; k<howmany; k++){
+        sum2 += 1.0/num[k];
+    }
+    ans[3]=howmany/sum2;
+
+    ans[4]=num[0];
+    ans[5]=num[0];
+    for(int l=1; l<howmany; l++){
+        if(ans[4]<num[l]) ans[4] = num[l];
+        if(ans[5]>num[l]) ans[5] = num[l];
+    }
+}
